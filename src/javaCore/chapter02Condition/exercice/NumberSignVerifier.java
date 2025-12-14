@@ -6,11 +6,11 @@ public class NumberSignVerifier {
         int number = -56;
 
         if ( number > 0) {
-            System.out.println(number + " est positif");
+            System.out.println(number + " est positive");
         } else if (number == 0){
-            System.out.println(number + " est egale a zero");
+            System.out.println(number + " is equal to 0");
         } else {
-            System.out.println(number + " est negative");
+            System.out.println(number + " is negative");
         }
 
 

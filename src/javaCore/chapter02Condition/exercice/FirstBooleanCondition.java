@@ -7,9 +7,9 @@ public class FirstBooleanCondition {
         boolean isAdult = false;
 
         if (age >= 18) {
-            System.out.println(" Vous etes majeur.");
+            System.out.println(" You are adult.");
         } else {
-            System.out.println(" Vous etes mineur.");
+            System.out.println(" You are minor.");
         }
 
 

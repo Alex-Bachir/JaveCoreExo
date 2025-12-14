@@ -2,9 +2,9 @@ package javaCore.chapter02Condition.exercice;
 
 public class AgeCategorization {
     public static void main(String[] args) {
+
         // 8 12 20 30 65 66
         int age = 66;
-
         if ( age < 10) {
             System.out.println("C'est un enfant.");
         } else if ( age >= 10 && age <= 18) {

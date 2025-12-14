@@ -6,9 +6,9 @@ public class ParityChecker {
         int number = 73;
 
         if (number % 2 == 0) {
-            System.out.println(number + " est pair.");
+            System.out.println(number + " is even.");
         } else {
-            System.out.println(number + " est impair.");
+            System.out.println(number + " is odd.");
         }
 
 

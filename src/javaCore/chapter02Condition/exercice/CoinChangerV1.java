@@ -5,47 +5,75 @@ public class CoinChangerV1 {
 
         int totalBill = 64;
         int amountPaid = 200;
-        int restARendre = 0;
+        int cashReturn = 0;
 
+        // If amount paid is greater than or equal to 50 euros.
         if (amountPaid >= 50) {
-            int rest = amountPaid - totalBill;
-            int nbBillet = rest / 50;
-            restARendre =  rest - (50 * nbBillet);
-            System.out.println("La machine rends " + nbBillet + " billets de 50 euros. Il reste " + restARendre + " euros.");
+            // Calculate the total  change to return.
+            int cashLeft = amountPaid - totalBill;
+            // Calculate how many 50€ bills we can return.
+            int cashCount = cashLeft / 50;
+            // Calculate what's left after returning the 50€ bills.
+            cashReturn =  cashLeft - (50 * cashCount);
+            // Display the number of bills returned and the remaining change.
+            System.out.println("The machine returns " + cashCount + " bills of 50 euros. There are " + cashReturn + " euros left.");
 
         }
 
-        if(restARendre >= 20){
-            int nbBillet = restARendre / 20;
-            restARendre = restARendre - (20 * nbBillet);
-            System.out.println("La machine rends " + nbBillet + " billets de 20 euros. Il reste " + restARendre + " euros.");
+        // If cashReturn is greater than or equal to 20 euros.
+        if (cashReturn >= 20) {
+            // Calculate how many 20€ bills we can return.
+            int cashCount = cashReturn / 20;
+            // Calculate what's left after returning the 20€ bills.
+            cashReturn = cashReturn - (20 * cashCount);
+            // Display the number of bills returned and the remaining change.
+            System.out.println("The machine returns " + cashCount + " bills of 20 euros. There are " + cashReturn + " euros left.");
+        }
 
+        // If cashReturn is greater than or equals to 10 euros.
+        if (cashReturn >= 10) {
+            // Calculate how many 10€ bills we can return.
+            int cashCount = cashReturn / 10;
+            // Calculate what's left after returning the 10€ bills.
+            cashReturn = cashReturn - (10 * cashCount);
+            // Display the number of bills returned and the remaining change.
+            System.out.println("The machine returns " + cashCount + " bills of 10 euros. There are " + cashReturn + " euros left.");        }
+
+        // If cashReturn is greater than or equals to 5€.
+        if (cashReturn >= 5) {
+            // Calculate how many 5€ bills we can return.
+            int cashCount = cashReturn / 5;
+            //Calculate what's left after returning the 5€ bills.
+            cashReturn = cashReturn - (5 * cashCount);
+            // Display the number of bills returned and the remaining change.
+            System.out.println("The machine returns " + cashCount + " bills of 5 euros. There are " + cashReturn + " euros left.");        }
+
+        // If cashReturn is greater than or equals to 2€.
+        if (cashReturn >= 2) {
+            // Calculate how many 2€ bills we can return.
+            int cashCount = cashReturn / 2;
+            // Calculate what's left after returning 2€ bills.
+            cashReturn = cashReturn - (2 * cashCount);
+            // Display the number of bills returned and the remaining change.
+            System.out.println("The machine returns " + cashCount + " bills of 2 euros. There are " + cashReturn + " euros left.");        }
+
+        // If cashReturn is greater than or equals to 1€.
+        if (cashReturn >= 1) {
+            // Calculate how many 1€ bills we can return.
+            int cashCount = cashReturn / 1;
+            // Calculate what's left after returning 1€ bills.
+            cashReturn = cashReturn - (1 * cashCount);
+            // Display the number of bills returned and the remaining change.
+            System.out.println("The machine returns " + cashCount + " bills of 1 euros. There are " + cashReturn + " euros left.");
+
+        // If cashReturn equals zero
+        if (cashReturn == 0) {
+            // Display "The machine has returned all the change."
+            System.out.println("The machine has returned all the change.");
+        }
 
         }
 
-        if(restARendre >= 10){
-            int nbBillet = restARendre / 10;
-            restARendre = restARendre - (10 * nbBillet);
-            System.out.println("La machine rends " + nbBillet + " billets de 10 euros. Il reste " + restARendre + " euros.");
-        }
-
-        if(restARendre >= 5){
-            int nbBillet = restARendre / 5;
-            restARendre = restARendre - (5 * nbBillet);
-            System.out.println("La machine rends " + nbBillet + " billets de 5 euros. Il reste " + restARendre + " euros.");
-        }
-
-        if(restARendre >= 2){
-            int nbBillet = restARendre / 2;
-            restARendre = restARendre - (2 * nbBillet);
-            System.out.println("La machine rends " + nbBillet + " piece de 2 euros. Il reste " + restARendre + " euros.");
-        }
-
-        if(restARendre >= 1){
-            int nbBillet = restARendre / 1;
-            restARendre = restARendre - (1 * nbBillet);
-            System.out.println("La machine rends " + nbBillet + " piece de 1 euros. Il reste " + restARendre + " euros.");
-        }
 
 
 
@@ -101,8 +129,7 @@ public class CoinChangerV1 {
 
 
 
-
-
+//  ici j'ai laissé ma première tentative
 
         // 12 25 37 58 87 241 305
         // 1 2 5 10 20 50
