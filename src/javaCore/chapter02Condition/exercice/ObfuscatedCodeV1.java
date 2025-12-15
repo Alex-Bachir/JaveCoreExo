@@ -19,12 +19,12 @@ public class ObfuscatedCodeV1 {
         if (modelVehicule == 3) {
             price = distanceInKm * 0.35;
         }
-        // on applique ici une reduction au coût de base peut import le vehicule car isVehicule = true
+        // on applique ici une reduction au coût de base peut importe le vehicule car isVehicule = true
         if (isVehicule) {
             price = price - (distanceInKm * d);
         }
 
-        System.out.println("___________ : " + price + "€");
+        System.out.println("Le prix pour passer le péage est de : " + price + "€");
 
     }
 }
