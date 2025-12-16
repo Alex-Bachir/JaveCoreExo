@@ -7,6 +7,7 @@ public class MaxOfThree {
         int b = 6;
         int c = 4;
 
+        // Tester toutes les possibilités
         // ABC
         if (a < b && a < c && b < c) {
             System.out.println(" Du plus petit au plus grand " + a + " " + b + " " + c);
