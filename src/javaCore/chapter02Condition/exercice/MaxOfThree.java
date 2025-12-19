@@ -5,7 +5,7 @@ public class MaxOfThree {
 
         int a = 7;
         int b = 6;
-        int c = 4;
+        int c = 9;
 
         // Tester toutes les possibilités
         // ABC
@@ -13,24 +13,27 @@ public class MaxOfThree {
             System.out.println(" Du plus petit au plus grand " + a + " " + b + " " + c);
         }
         // ACB
-        if (a < b && a < c && b > c) {
+        else if (a < b && a < c && b > c) {
             System.out.println(" Du plus petit au plus grand " + a + " " + c + " " + b);
         }
         // BAC
-        if (b < a && a < c && b < c) {
+        else if (b < a && a < c && b < c) {
             System.out.println(" Du plus petit au plus grand " + b + " " + a + " " + c);
         }
         // BCA
-        if(b < c && c < a && a > c) {
+        else if(b < c && c < a && a > c) {
             System.out.println(" Du plus petit au plus grand " + b + " " + c + " " + a);
         }
         // CAB
-        if(c < a && a < b && a < b) {
+        else if(c < a && a < b && a < b) {
             System.out.println(" Du plus petit au plus grand " + c + " " + a + " " + b);
         }
         // CBA
-        if (c < b && b < a && a >b) {
+        else if (c < b && b < a && a >b) {
             System.out.println(" Du plus petit auplus grand " + c + " " + b + " " + a);
+        }
+        else {
+            System.out.println("Erreur : cas impossible");
         }
 
     }
