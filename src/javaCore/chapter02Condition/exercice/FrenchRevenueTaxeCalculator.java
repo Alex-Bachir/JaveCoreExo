@@ -19,38 +19,24 @@ public class FrenchRevenueTaxeCalculator {
         double netSalaryManager = grossAnnualSalary - (grossAnnualSalary * socialTaxeManager / 100);
 
 
-        // tax bracket
+        // tax bracket ici on initialise les tranches de taxe avec la plage maximum
         double taxBracket1 = (29316 - 11498) * 0.11;
         double taxBracket2 = (83823 - 29316) * 0.30;
         double taxBracket3 = (180294 - 83823) * 0.41;
 
 
         // bracket tax worker
-        double taxBracketWorker1 = 29316 - netSalaryWorker;
-        double taxBracketWorker2 = 83823 - netSalaryWorker;
-        double taxBracketWorker3 = 180294 - netSalaryWorker;
-        double taxBracketWorker4 = netSalaryWorker - 180294;
+        double taxBracketWorker1 = (29316 - netSalaryWorker) * 0.11;
+        double taxBracketWorker2 = (83823 - netSalaryWorker) * 0.30;
+        double taxBracketWorker3 = (180294 - netSalaryWorker) * 0.41;
+        double taxBracketWorker4 = (netSalaryWorker - 180294) * 0.45;
 
 
         // bracket tax manadger
-        double taxBracketManager1 = 29316 - netSalaryManager;
-        double taxBracketManager2 = 83823 - netSalaryManager;
-        double taxBracketManager3 = 180294 - netSalaryManager;
-        double taxBracketManager4 = netSalaryManager - 180294;
-
-
-        // tax on Bracket worker
-        double taxOnBracketWorker1 = taxBracketWorker1 * 0.11;
-        double taxOnBracketWorker2 = taxBracketWorker2 * 0.30;
-        double taxOnBracketWorker3 = taxBracketWorker3 * 0.41;
-        double taxOnBracketWorker4 = taxBracketWorker4 * 0.45;
-
-
-        // tax on bracket manager
-        double taxOnBracketManager1 = taxBracketManager1 * 0.11;
-        double taxOnBracketManager2 = taxBracketManager2 * 0.30;
-        double taxOnBracketManager3 = taxBracketManager3 * 0.41;
-        double taxOnBracketManager4 = taxBracketManager4 * 0.45;
+        double taxBracketManager1 = (29316 - netSalaryManager) * 0.11;
+        double taxBracketManager2 = (83823 - netSalaryManager) * 0.30;
+        double taxBracketManager3 = (180294 - netSalaryManager) * 0.41;
+        double taxBracketManager4 = (netSalaryManager - 180294) * 0.45;
 
 
         if (isWorker == true && netSalaryWorker <= 11498) {
@@ -60,34 +46,34 @@ public class FrenchRevenueTaxeCalculator {
 
 
         } else if (isWorker == true && netSalaryWorker <= 29316) {
-            double taxBracketTotal = taxOnBracketWorker1;
+            double taxBracketTotal = taxBracketWorker1;
             System.out.println(" 1 Worker Tax total: " + taxBracketTotal);
         } else if (isWorker == false && netSalaryManager <= 29316) {
-            double taxBracketTotal = taxOnBracketManager1;
+            double taxBracketTotal = taxBracketManager1;
             System.out.println(" 1 Manager Tax total: " + taxBracketTotal);
 
 
         } else if (isWorker == true && netSalaryWorker <= 83823) {
-            double taxBracketTotal = taxBracket1 + taxOnBracketWorker2;
+            double taxBracketTotal = taxBracket1 + taxBracketWorker2;
             System.out.println(" 2 Worker Tax total: " + taxBracketTotal);
         } else if (isWorker == false && netSalaryManager <= 83823) {
-            double taxBracketTotal = taxBracket1 + taxOnBracketManager2;
+            double taxBracketTotal = taxBracket1 + taxBracketManager2;
             System.out.println(" 2 Manager Tax total: " + taxBracketTotal);
 
 
         } else if (isWorker == true && netSalaryWorker <= 180294) {
-            double taxBracketTotal = taxBracket1 + taxBracket2 + taxOnBracketWorker3;
+            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracketWorker3;
             System.out.println(" 3 Worker Tax total: " + taxBracketTotal);
         } else if (isWorker == false && netSalaryManager <= 180294) {
-            double taxBracketTotal = taxBracket1 + taxBracket2 + taxOnBracketManager3;
+            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracketManager3;
             System.out.println(" 3 Manager Tax total: " + taxBracketTotal);
 
 
         } else if (isWorker == true && netSalaryWorker > 180294) {
-            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracket3 + taxOnBracketWorker4;
+            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracket3 + taxBracketWorker4;
             System.out.println(" 4 Manager Tax total: " + taxBracketTotal);
         } else if (isWorker == false && netSalaryManager > 180294) {
-            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracket3 + taxOnBracketManager4;
+            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracket3 + taxBracketManager4;
             System.out.println(" 4 Manager Tax total: " + taxBracketTotal);
         }
     }
