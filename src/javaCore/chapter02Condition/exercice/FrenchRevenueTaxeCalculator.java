@@ -19,28 +19,32 @@ public class FrenchRevenueTaxeCalculator {
         double netSalaryManager = grossAnnualSalary - (grossAnnualSalary * socialTaxeManager / 100);
 
 
-        // tax bracket ici on initialise les tranches de taxe avec la plage maximum
+        // tax bracket, ici on initialise les tranches de taxe avec la plage maximum,
+        // on récupère la/les taxes nécessaires pour le salaire donné
         double taxBracket1 = (29316 - 11498) * 0.11;
         double taxBracket2 = (83823 - 29316) * 0.30;
         double taxBracket3 = (180294 - 83823) * 0.41;
 
 
-        // bracket tax worker
+        // bracket tax worker ici on initialise les tranches de salaire des ouvriers
+        // * on piochera la variable pour la tranche voulu
         double taxBracketWorker1 = (29316 - netSalaryWorker) * 0.11;
         double taxBracketWorker2 = (83823 - netSalaryWorker) * 0.30;
         double taxBracketWorker3 = (180294 - netSalaryWorker) * 0.41;
         double taxBracketWorker4 = (netSalaryWorker - 180294) * 0.45;
 
 
-        // bracket tax manadger
+        // bracket tax manager ici pareil mais pour les manager
+        // pareille ici *
         double taxBracketManager1 = (29316 - netSalaryManager) * 0.11;
         double taxBracketManager2 = (83823 - netSalaryManager) * 0.30;
         double taxBracketManager3 = (180294 - netSalaryManager) * 0.41;
         double taxBracketManager4 = (netSalaryManager - 180294) * 0.45;
 
-
+        // si c'est un ouvrier et que le salaire est inférieur ou egale à 11.498 €.
         if (isWorker == true && netSalaryWorker <= 11498) {
             System.out.println(" 0 Worker dont't pay tax");
+            // si ce n'est pas un ouvrier et que le salaire est inférieur ou égale à 11.498 €.
         } else if (isWorker == false && netSalaryManager <= 11498) {
             System.out.println(" 0 Manager don't pay tax");
 
