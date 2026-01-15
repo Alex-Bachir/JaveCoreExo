@@ -4,13 +4,13 @@ public class CoinChangerV1 {
     public static void main(String[] args) {
 
         // total de la facture à payer
-        int totalBill       = 100;
+        int totalBill        = 100;
         // montant que le client paye
-        int amountPaid = 174;
+        int amountPaid   = 174;
         // montant restant à payer
-        int cashLeft      = amountPaid - totalBill;
+        int cashLeft       = amountPaid - totalBill;
         // nombre de billet ou piece à rendre
-        int billChange   = 0;
+        int billChange    = 0;
 
         if (cashLeft  >= 50) {
             billChange = cashLeft / 50;

@@ -26,7 +26,7 @@ public class FrenchRevenueTaxeCalculator {
         double taxBracket3 = (180294 - 83823) * 0.41;
 
 
-        // bracket tax worker ici on initialise les tranches de salaire des ouvriers
+        // bracket tax worker, ici on initialise les tranches de salaire des ouvriers
         // * on piochera la variable pour la tranche voulu
         double taxBracketWorker1 = (29316 - netSalaryWorker) * 0.11;
         double taxBracketWorker2 = (83823 - netSalaryWorker) * 0.30;
@@ -34,7 +34,7 @@ public class FrenchRevenueTaxeCalculator {
         double taxBracketWorker4 = (netSalaryWorker - 180294) * 0.45;
 
 
-        // bracket tax manager ici pareil mais pour les manager
+        // bracket tax manager, ici pareil mais pour les manager
         // pareille ici *
         double taxBracketManager1 = (29316 - netSalaryManager) * 0.11;
         double taxBracketManager2 = (83823 - netSalaryManager) * 0.30;
