@@ -2,89 +2,155 @@ package javaCore.chapter02Condition.exercice;
 
 public class FrenchRevenueTaxeCalculator {
 
-    public static <booleen> void main(String[] args) {
-        // test 11000, 19500, 65000, 98000, 250000
+    public static void main(String[] args) {
+        // test 11000, 19500, 65000, 250000
         // annual salary
-        double grossAnnualSalary = 250000;
+        double grossAnnualSalary = 45000;
 
-        // Here we have the contribution percentages for workers and executives.
-        // I will use double for calculation precision because it is necessary to be accurate in tax calculations.
         double socialTaxeWorker = 23;
         double socialTaxeManager = 25;
+        double taxToBeApply;
 
-        boolean isWorker = true;
+        boolean isWorker = false;
+
+        if (isWorker) {
+            taxToBeApply = socialTaxeWorker;
+            System.out.println("Vous êtes un ouvrier votre taxe sera de 23%");
+        } else {
+            taxToBeApply = socialTaxeManager;
+            System.out.println("Vous êtes un cadre votre taxe sera de 25%");
+        }
+
+        double taxBracket1 = (28797 - 11294) * 0.11;
+        double taxBracket2 = (82341 - 28797) * 0.30;
+        double taxBracket3 = (177106 - 82342) * 0.41;
 
         // Calculate netSalary
-        double netSalaryWorker = grossAnnualSalary - (grossAnnualSalary * socialTaxeWorker / 100);
-        double netSalaryManager = grossAnnualSalary - (grossAnnualSalary * socialTaxeManager / 100);
+        double netSalary = grossAnnualSalary - (grossAnnualSalary * taxToBeApply / 100);
 
+        if (netSalary >= 177106) {
+            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracket3 + ((netSalary - 177106) * 0.45);
+            System.out.println("La taxe total pour un salaire supérieur à 177106 € est de " + taxBracketTotal + " c'est la tranche maximal.");
+        }
 
-        // tax bracket, ici on initialise les tranches de taxe avec la plage maximum,
-        // on récupère la/les taxes nécessaires pour le salaire donné
-        double taxBracket1 = (29316 - 11498) * 0.11;
-        double taxBracket2 = (83823 - 29316) * 0.30;
-        double taxBracket3 = (180294 - 83823) * 0.41;
+        if (netSalary < 177106 && netSalary >= 82341) {
+            double taxBracketTotal = taxBracket1 + taxBracket2 + ((177106 - netSalary) * 0.41);
+            System.out.println("La taxe total pour un salaire de la tranche entre 82341€ à 177106€ est de " + taxBracketTotal + " c'est la tranche 4.");
+        }
 
+        if (netSalary < 82341 && netSalary >= 28798) {
+            double taxBracketTotal =taxBracket1 + ((82341 - netSalary) * 0.30);
+            System.out.println("La taxe total pour un salaire de la tranche entre 28798 € à 82341 € est de " + taxBracketTotal + " c'est la tranche 3.");
+        }
 
-        // bracket tax worker, ici on initialise les tranches de salaire des ouvriers
-        // * on piochera la variable pour la tranche voulu
-        double taxBracketWorker1 = (29316 - netSalaryWorker) * 0.11;
-        double taxBracketWorker2 = (83823 - netSalaryWorker) * 0.30;
-        double taxBracketWorker3 = (180294 - netSalaryWorker) * 0.41;
-        double taxBracketWorker4 = (netSalaryWorker - 180294) * 0.45;
+        if (netSalary < 28798 && netSalary >= 11295) {
+            double taxBracketTotal = (28798 - netSalary) * 0.11;
+            System.out.println("La taxe total pour un salaire de la tranche entre 11295 € à 28798 € est de " + taxBracketTotal + "c'est la tranche 2.");
+        }
 
-
-        // bracket tax manager, ici pareil mais pour les manager
-        // pareille ici *
-        double taxBracketManager1 = (29316 - netSalaryManager) * 0.11;
-        double taxBracketManager2 = (83823 - netSalaryManager) * 0.30;
-        double taxBracketManager3 = (180294 - netSalaryManager) * 0.41;
-        double taxBracketManager4 = (netSalaryManager - 180294) * 0.45;
-
-        // si c'est un ouvrier et que le salaire est inférieur ou egale à 11.498 €.
-        if (isWorker == true && netSalaryWorker <= 11498) {
-            System.out.println(" 0 Worker dont't pay tax");
-            // si ce n'est pas un ouvrier et que le salaire est inférieur ou égale à 11.498 €.
-        } else if (isWorker == false && netSalaryManager <= 11498) {
-            System.out.println(" 0 Manager don't pay tax");
-
-
-        } else if (isWorker == true && netSalaryWorker <= 29316) {
-            double taxBracketTotal = taxBracketWorker1;
-            System.out.println(" 1 Worker Tax total: " + taxBracketTotal);
-        } else if (isWorker == false && netSalaryManager <= 29316) {
-            double taxBracketTotal = taxBracketManager1;
-            System.out.println(" 1 Manager Tax total: " + taxBracketTotal);
-
-
-        } else if (isWorker == true && netSalaryWorker <= 83823) {
-            double taxBracketTotal = taxBracket1 + taxBracketWorker2;
-            System.out.println(" 2 Worker Tax total: " + taxBracketTotal);
-        } else if (isWorker == false && netSalaryManager <= 83823) {
-            double taxBracketTotal = taxBracket1 + taxBracketManager2;
-            System.out.println(" 2 Manager Tax total: " + taxBracketTotal);
-
-
-        } else if (isWorker == true && netSalaryWorker <= 180294) {
-            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracketWorker3;
-            System.out.println(" 3 Worker Tax total: " + taxBracketTotal);
-        } else if (isWorker == false && netSalaryManager <= 180294) {
-            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracketManager3;
-            System.out.println(" 3 Manager Tax total: " + taxBracketTotal);
-
-
-        } else if (isWorker == true && netSalaryWorker > 180294) {
-            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracket3 + taxBracketWorker4;
-            System.out.println(" 4 Manager Tax total: " + taxBracketTotal);
-        } else if (isWorker == false && netSalaryManager > 180294) {
-            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracket3 + taxBracketManager4;
-            System.out.println(" 4 Manager Tax total: " + taxBracketTotal);
+        if (netSalary < 11295) {
+            System.out.println("Vous ne payer pas de taxe supplémentaire. C'est la tranche 1.");
         }
     }
 }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// tax bracket, ici on initialise les tranches de taxe avec la plage maximum,
+// on récupère la/les taxes nécessaires pour le salaire donné
+
+//
+//
+// bracket tax worker, ici on initialise les tranches de salaire des ouvriers
+// * on piochera la variable pour la tranche voulu
+//double taxBracketWorker1 = (28797 - netSalary) * 0.11;
+//double taxBracketWorker2 = (82341 - netSalary) * 0.30;
+//double taxBracketWorker3 = (177106 - netSalary) * 0.41;
+//double taxBracketWorker4 = (netSalary - 177106) * 0.45;
+
+//        // si c'est un ouvrier et que le salaire est inférieur ou egale à 11.498 €.
+//        if (isWorker == true && netSalaryWorker <= 11498) {
+//            System.out.println(" 0 Worker dont't pay tax");
+//            // si ce n'est pas un ouvrier et que le salaire est inférieur ou égale à 11.498 €.
+//        } else if (isWorker == false && netSalaryManager <= 11498) {
+//            System.out.println(" 0 Manager don't pay tax");
+//
+//
+//        } else if (isWorker == true && netSalaryWorker <= 29316) {
+//            double taxBracketTotal = taxBracketWorker1;
+//            System.out.println(" 1 Worker Tax total: " + taxBracketTotal);
+//        } else if (isWorker == false && netSalaryManager <= 29316) {
+//            double taxBracketTotal = taxBracketManager1;
+//            System.out.println(" 1 Manager Tax total: " + taxBracketTotal);
+//
+//
+//        } else if (isWorker == true && netSalaryWorker <= 83823) {
+//            double taxBracketTotal = taxBracket1 + taxBracketWorker2;
+//            System.out.println(" 2 Worker Tax total: " + taxBracketTotal);
+//        } else if (isWorker == false && netSalaryManager <= 83823) {
+//            double taxBracketTotal = taxBracket1 + taxBracketManager2;
+//            System.out.println(" 2 Manager Tax total: " + taxBracketTotal);
+//
+//
+//        } else if (isWorker == true && netSalaryWorker <= 180294) {
+//            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracketWorker3;
+//            System.out.println(" 3 Worker Tax total: " + taxBracketTotal);
+//        } else if (isWorker == false && netSalaryManager <= 180294) {
+//            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracketManager3;
+//            System.out.println(" 3 Manager Tax total: " + taxBracketTotal);
+//
+//
+//        } else if (isWorker == true && netSalaryWorker > 180294) {
+//            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracket3 + taxBracketWorker4;
+//            System.out.println(" 4 Manager Tax total: " + taxBracketTotal);
+//        } else if (isWorker == false && netSalaryManager > 180294) {
+//            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracket3 + taxBracketManager4;
+//            System.out.println(" 4 Manager Tax total: " + taxBracketTotal);
+//        }
+//    }
 
 
 
