@@ -48,7 +48,7 @@ public class FrenchRevenueTaxeCalculator {
             System.out.println("La taxe total pour un salaire de la tranche entre 11295 € à 28798 € est de " + taxBracketTotal + "c'est la tranche 2.");
         }
 
-        if (netSalary < 11295) {
+        if (netSalary <= 11294) {
             System.out.println("Vous ne payer pas de taxe supplémentaire. C'est la tranche 1.");
         }
     }
