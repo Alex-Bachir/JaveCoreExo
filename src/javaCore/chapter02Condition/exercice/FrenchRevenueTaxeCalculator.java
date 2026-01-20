@@ -28,7 +28,7 @@ public class FrenchRevenueTaxeCalculator {
         // Calculate netSalary
         double netSalary = grossAnnualSalary - (grossAnnualSalary * taxToBeApply / 100);
 
-        if (netSalary >= 177106) {
+        if (netSalary > 177106) {
             double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracket3 + ((netSalary - 177106) * 0.45);
             System.out.println("La taxe total pour un salaire supérieur à 177106 € est de " + taxBracketTotal + " c'est la tranche maximal.");
         }
