@@ -8,12 +8,13 @@ public class FrenchRevenueTaxeCalculator {
         double grossAnnualSalary = 85640;
         System.out.println(String.format("Le salaire brute est de " +"%.2f", grossAnnualSalary));
 
+
         double socialTaxeWorker = 23;
         double socialTaxeManager = 25;
         double taxToBeApply;
-
         boolean isWorker = true;
 
+        // ici on détermine si c'est un ouvrier ou un manager
         if (isWorker) {
             taxToBeApply = socialTaxeWorker;
             System.out.println("Vous êtes un ouvrier votre cotisation social sera de 23%");
@@ -26,8 +27,9 @@ public class FrenchRevenueTaxeCalculator {
         // Calculate netSalary
         double netSalary = grossAnnualSalary - (grossAnnualSalary * taxToBeApply / 100);
         System.out.println(String.format("On applique la cotisation social au salaire brute ce qui fait : " +"%.2f", netSalary));
-        double netSalaryAfterDeduction = netSalary -(netSalary * 0.10);
+        double netSalaryAfterDeduction = netSalary - (netSalary * 0.10);
         System.out.println("Un abattement de 10% est appliqué pour réduire le revenu imposable. On déduit 10% au salaire net ce qui fait : " + String.format("%.2f", netSalaryAfterDeduction));
+
 
         double taxBracket5 = 0;
         double taxBracket4 = 0;
@@ -35,24 +37,25 @@ public class FrenchRevenueTaxeCalculator {
         double taxBracket2 = 0;
         double taxBracket1 = 0;
 
+
         if (netSalary > 177106) {
             taxBracket5 = ((netSalaryAfterDeduction - 177106) * 0.45);
-            System.out.println(String.format("Paye la taxe de la tranche 5 : " + "%.2f",taxBracket5));
+            System.out.println(String.format("La taxe de la tranche 5 est de : " + "%.2f", taxBracket5));
         }
 
         if (netSalary >= 82342) {
             taxBracket4 = ((netSalaryAfterDeduction - 82342) * 0.41);
-            System.out.println(String.format("Paye la taxe de la tranche 4 : " + "%.2f",taxBracket4));
+            System.out.println(String.format("La taxe de la tranche 4 est de : " + "%.2f", taxBracket4));
         }
 
         if (netSalary >= 28797) {
             taxBracket3 = ((netSalaryAfterDeduction - 28797) * 0.30);
-            System.out.println(String.format("Paye la taxe de la tranche 3 : " + "%.2f",taxBracket3));
+            System.out.println(String.format("La taxe de la tranche 3 est de : " + "%.2f", taxBracket3));
         }
 
         if (netSalary >= 11295) {
             taxBracket2 = ((netSalaryAfterDeduction - 11295) * 0.11);
-            System.out.println(String.format("Paye la taxe de la tranche 2 : " + "%.2f",taxBracket2));
+            System.out.println(String.format("La taxe de la tranche 2 est de : " + "%.2f", taxBracket2));
         }
 
         if (netSalary < 11295) {
@@ -61,7 +64,7 @@ public class FrenchRevenueTaxeCalculator {
         }
 
         double taxTotal = taxBracket5 + taxBracket4 + taxBracket3 + taxBracket2 + taxBracket1;
-        System.out.println(String.format("Voici la taxe en totalité prélever sur votre salaire annuel : " +"%.2f", taxTotal));
+        System.out.println(String.format("Voici la taxe en totalité prélever sur votre salaire net annuel : " +"%.2f", taxTotal));
 
     }
 
