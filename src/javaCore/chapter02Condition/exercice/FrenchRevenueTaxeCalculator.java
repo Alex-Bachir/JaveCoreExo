@@ -5,53 +5,66 @@ public class FrenchRevenueTaxeCalculator {
     public static void main(String[] args) {
         // test 11000, 19500, 65000, 250000
         // annual salary
-        double grossAnnualSalary = 45000;
+        double grossAnnualSalary = 85640;
+        System.out.println(String.format("Le salaire brute est de " +"%.2f", grossAnnualSalary));
 
         double socialTaxeWorker = 23;
         double socialTaxeManager = 25;
         double taxToBeApply;
 
-        boolean isWorker = false;
+        boolean isWorker = true;
 
         if (isWorker) {
             taxToBeApply = socialTaxeWorker;
-            System.out.println("Vous êtes un ouvrier votre taxe sera de 23%");
+            System.out.println("Vous êtes un ouvrier votre cotisation social sera de 23%");
         } else {
             taxToBeApply = socialTaxeManager;
-            System.out.println("Vous êtes un cadre votre taxe sera de 25%");
+            System.out.println("Vous êtes un cadre votre cotisation social sera de 25%");
         }
 
-        double taxBracket1 = (28797 - 11294) * 0.11;
-        double taxBracket2 = (82341 - 28797) * 0.30;
-        double taxBracket3 = (177106 - 82342) * 0.41;
 
         // Calculate netSalary
         double netSalary = grossAnnualSalary - (grossAnnualSalary * taxToBeApply / 100);
+        System.out.println(String.format("On applique la cotisation social au salaire brute ce qui fait : " +"%.2f", netSalary));
+        double netSalaryAfterDeduction = netSalary -(netSalary * 0.10);
+        System.out.println("Un abattement de 10% est appliqué pour réduire le revenu imposable. On déduit 10% au salaire net ce qui fait : " + String.format("%.2f", netSalaryAfterDeduction));
+
+        double taxBracket5 = 0;
+        double taxBracket4 = 0;
+        double taxBracket3 = 0;
+        double taxBracket2 = 0;
+        double taxBracket1 = 0;
 
         if (netSalary > 177106) {
-            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracket3 + ((netSalary - 177106) * 0.45);
-            System.out.println("La taxe total pour un salaire supérieur à 177106 € est de " + taxBracketTotal + " c'est la tranche maximal.");
+            taxBracket5 = ((netSalaryAfterDeduction - 177106) * 0.45);
+            System.out.println(String.format("Paye la taxe de la tranche 5 : " + "%.2f",taxBracket5));
         }
 
-        if (netSalary < 177106 && netSalary >= 82342) {
-            double taxBracketTotal = taxBracket1 + taxBracket2 + ((177106 - netSalary) * 0.41);
-            System.out.println("La taxe total pour un salaire de la tranche entre 82341€ à 177106€ est de " + taxBracketTotal + " c'est la tranche 4.");
+        if (netSalary >= 82342) {
+            taxBracket4 = ((netSalaryAfterDeduction - 82342) * 0.41);
+            System.out.println(String.format("Paye la taxe de la tranche 4 : " + "%.2f",taxBracket4));
         }
 
-        if (netSalary < 82342 && netSalary >= 28798) {
-            double taxBracketTotal =taxBracket1 + ((82341 - netSalary) * 0.30);
-            System.out.println("La taxe total pour un salaire de la tranche entre 28798 € à 82341 € est de " + taxBracketTotal + " c'est la tranche 3.");
+        if (netSalary >= 28797) {
+            taxBracket3 = ((netSalaryAfterDeduction - 28797) * 0.30);
+            System.out.println(String.format("Paye la taxe de la tranche 3 : " + "%.2f",taxBracket3));
         }
 
-        if (netSalary < 28798 && netSalary >= 11295) {
-            double taxBracketTotal = (28798 - netSalary) * 0.11;
-            System.out.println("La taxe total pour un salaire de la tranche entre 11295 € à 28798 € est de " + taxBracketTotal + "c'est la tranche 2.");
+        if (netSalary >= 11295) {
+            taxBracket2 = ((netSalaryAfterDeduction - 11295) * 0.11);
+            System.out.println(String.format("Paye la taxe de la tranche 2 : " + "%.2f",taxBracket2));
         }
 
-        if (netSalary <= 11294) {
-            System.out.println("Vous ne payer pas de taxe supplémentaire. C'est la tranche 1.");
+        if (netSalary < 11295) {
+            taxBracket1 = ((netSalaryAfterDeduction - 11295) * 0);
+            System.out.println("Ne paye pas de taxe." + taxBracket1);
         }
+
+        double taxTotal = taxBracket5 + taxBracket4 + taxBracket3 + taxBracket2 + taxBracket1;
+        System.out.println(String.format("Voici la taxe en totalité prélever sur votre salaire annuel : " +"%.2f", taxTotal));
+
     }
+
 }
 
 
@@ -93,12 +106,38 @@ public class FrenchRevenueTaxeCalculator {
 
 
 
+//v.3
+
+
+//if (netSalary > 177106) {
+//double taxBracketTotal = ((netSalary - 177106) * 0.45);
+//            System.out.println("La taxe total pour un salaire supérieur à 177106 € est de " + taxBracketTotal + " c'est la tranche maximal.");
+//        }
+//
+//                if (netSalary >= 82342) {
+//double taxBracketTotal = ((177106 - netSalary) * 0.41);
+//            System.out.println("La taxe total pour un salaire de la tranche entre 82341€ à 177106€ est de " + taxBracketTotal + " c'est la tranche 4.");
+//        }
+//
+//                if (netSalary >= 28798) {
+//double taxBracketTotal =((82341 - netSalary) * 0.30);
+//            System.out.println("La taxe total pour un salaire de la tranche entre 28798 € à 82341 € est de " + taxBracketTotal + " c'est la tranche 3.");
+//        }
+//
+//                if (netSalary >= 11295) {
+//double taxBracketTotal = (28798 - netSalary) * 0.11;
+//            System.out.println("La taxe total pour un salaire de la tranche entre 11295 € à 28798 € est de " + taxBracketTotal + " c'est la tranche 2.");
+//        }
+//
+//                if (netSalary <= 11294) {
+//        System.out.println("Vous ne payer pas de taxe supplémentaire. C'est la tranche 1.");
+//        }
 
 
 
 
 
-
+// v.2
 // tax bracket, ici on initialise les tranches de taxe avec la plage maximum,
 // on récupère la/les taxes nécessaires pour le salaire donné
 
@@ -153,41 +192,7 @@ public class FrenchRevenueTaxeCalculator {
 //    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// v.1
 
 //        if (isWorker == true && netSalaryWorker > 180294) {
 //            double taxBracketTotal = taxBracket1 + taxBracket2 + taxBracket3 + taxOnBracketWorker4;
