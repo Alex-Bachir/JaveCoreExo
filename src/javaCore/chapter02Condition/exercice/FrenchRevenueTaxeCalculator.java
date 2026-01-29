@@ -5,7 +5,7 @@ public class FrenchRevenueTaxeCalculator {
     public static void main(String[] args) {
         // test 11000, 19500, 65000, 250000
         // annual salary
-        double grossAnnualSalary = 85640;
+        double grossAnnualSalary = 285000;
         System.out.println(String.format("Le salaire brute est de " +"%.2f", grossAnnualSalary));
 
 
@@ -40,26 +40,31 @@ public class FrenchRevenueTaxeCalculator {
 
         if (netSalary > 177106) {
             taxBracket5 = ((netSalaryAfterDeduction - 177106) * 0.45);
+            netSalaryAfterDeduction = 177106;
             System.out.println(String.format("La taxe de la tranche 5 est de : " + "%.2f", taxBracket5));
         }
 
         if (netSalary >= 82342) {
             taxBracket4 = ((netSalaryAfterDeduction - 82342) * 0.41);
+            netSalaryAfterDeduction = 82342;
             System.out.println(String.format("La taxe de la tranche 4 est de : " + "%.2f", taxBracket4));
         }
 
         if (netSalary >= 28797) {
             taxBracket3 = ((netSalaryAfterDeduction - 28797) * 0.30);
+            netSalaryAfterDeduction = 28797;
             System.out.println(String.format("La taxe de la tranche 3 est de : " + "%.2f", taxBracket3));
         }
 
         if (netSalary >= 11295) {
             taxBracket2 = ((netSalaryAfterDeduction - 11295) * 0.11);
+            netSalaryAfterDeduction = 11295;
             System.out.println(String.format("La taxe de la tranche 2 est de : " + "%.2f", taxBracket2));
         }
 
         if (netSalary < 11295) {
             taxBracket1 = ((netSalaryAfterDeduction - 11295) * 0);
+            netSalaryAfterDeduction = 11295;
             System.out.println("Ne paye pas de taxe." + taxBracket1);
         }
 
