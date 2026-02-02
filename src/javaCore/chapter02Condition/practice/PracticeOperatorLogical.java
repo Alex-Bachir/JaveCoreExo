@@ -3,26 +3,26 @@ package javaCore.chapter02Condition.practice;
 public class PracticeOperatorLogical {
     public static void main(String[] args) {
 
-        boolean trueAndTrue   =  true && true;      // resultat true
-        boolean trueAndFalse  =  true && false;    // resultat false
+        boolean trueAndTrue   =  true && true;     // resultat true
+        boolean trueAndFalse  =  true && false;   // resultat false
         boolean falseAndtrue   = false && true;   // resultat false
         boolean falseAndFalse = false && false;  // resultat false
 
-        boolean trueOrTrue =  true  || true; // resultat true
-        boolean trueOrFalse = true || false; // resultat true
-        boolean falseOrTrue =  false  || true; // resultat true
+        boolean trueOrTrue   =  true  || true;   // resultat true
+        boolean trueOrFalse  = true   || false; // resultat true
+        boolean falseOrTrue  =  false || true;  // resultat true
         boolean falseOrFalse = false || false; // resultat false
 
-        boolean notTrue  =  !true; // false
+        boolean notTrue   =  !true;   // false
         boolean notFalse  =  !false; // true
 
-        boolean trueAndTrueAndTrue  = true && true && true;  // true
+        boolean trueAndTrueAndTrue  = true && true && true;   // true
         boolean trueAndTrueAndFalse = true && true && false; // false
 
-        boolean trueOrTrueOrTrue = true  || true  || true; // true
-        boolean trueOrTrueOrFalse = true || true || false; // true
+        boolean trueOrTrueOrTrue  = true  || true  || true;  // true
+        boolean trueOrTrueOrFalse = true  || true  || false; // true
 
-        boolean notNotTrue  =  !!true; // true
+        boolean notNotTrue   =  !!true;   // true
         boolean notNotFalse  =  !!false; // false
 
 

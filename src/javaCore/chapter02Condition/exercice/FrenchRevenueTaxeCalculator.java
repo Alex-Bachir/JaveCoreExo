@@ -9,9 +9,9 @@ public class FrenchRevenueTaxeCalculator {
         System.out.println(String.format("Le salaire brute est de " +"%.2f", grossAnnualSalary));
 
 
-        double socialTaxeWorker = 23;
-        double socialTaxeManager = 25;
-        double taxToBeApply;
+        double   socialTaxeWorker = 23;
+        double   socialTaxeManager = 25;
+        double   taxToBeApply;
         boolean isWorker = true;
 
         // ici on détermine si c'est un ouvrier ou un manager
@@ -69,7 +69,8 @@ public class FrenchRevenueTaxeCalculator {
         }
 
         double taxTotal = taxBracket5 + taxBracket4 + taxBracket3 + taxBracket2 + taxBracket1;
-        System.out.println(String.format("Voici la taxe en totalité prélever sur votre salaire net annuel : " +"%.2f", taxTotal));
+        System.out.println(String.format("Voici la taxe en totalité prélever sur votre salaire net annuel : " + "%.2f", taxTotal ));
+        System.out.println(String.format("Le salaire net apès imposition est de : " + "%.2f", netSalary - taxTotal));
 
     }
 
