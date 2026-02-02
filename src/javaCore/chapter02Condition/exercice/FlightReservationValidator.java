@@ -16,8 +16,8 @@ public class FlightReservationValidator {
         double flightPriceAfterPremium = 0;
         // reduction du prix du vol en pourcentage
         double volReductionPrice = 0.15;
-        boolean isPremiumMember = true; // es ce que c'est une client VIP
-        boolean isVIPFlight = false; // es ce que c'est un vol reservé aux VIP
+        boolean isPremiumMember = false; // es ce que c'est une client VIP
+
 
         if(!isLoggedIn){
             System.out.println("Tu n'es pas connecté !");
@@ -36,9 +36,9 @@ public class FlightReservationValidator {
             return;
         }
 
-
         if (isPremiumMember) {
             flightPriceAfterPremium = flightPrice - (flightPrice * volReductionPrice);
+            System.out.println("Vous avez accés au vol VIP !");
             System.out.println("Avec votre status premium vous recevez une reduction de 15% ce qui fera " + String.format ("%.1f", flightPriceAfterPremium) + " euros. Merci d'avoir choisi notre compagnie bon vol.");
         } else {
             System.out.println("Tu n'a pas accés au vol VIP.");
