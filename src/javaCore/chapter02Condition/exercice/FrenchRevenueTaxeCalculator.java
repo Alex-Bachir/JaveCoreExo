@@ -5,7 +5,7 @@ public class FrenchRevenueTaxeCalculator {
     public static void main(String[] args) {
         // test 11000, 19500, 65000, 250000
         // annual salary
-        double grossAnnualSalary = 285000;
+        double grossAnnualSalary = 200000;
         System.out.println(String.format("Le salaire brute est de " +"%.2f", grossAnnualSalary));
 
 
