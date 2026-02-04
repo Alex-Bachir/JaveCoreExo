@@ -6,13 +6,13 @@ public class FrenchRevenueTaxeCalculator {
         // test 11000, 19500, 65000, 250000
         // annual salary
 
-        double grossAnnualSalary = 88000;
-        final double   SOCIAL_TAXE_WORKER = 23;
-        final double   SOCIAL_TAXE_MANAGER = 25;
         final double   SOCIAL_CONTRIBUTION_RATE;
-        final double ABATTEMENT_MAX_AMOUNT = 10000;
-        final double ABATTEMENT_RATE = 0.10;
-        boolean isWorker = false;
+        double          grossAnnualSalary               = 88000;
+        final double   SOCIAL_TAXE_WORKER       = 23;
+        final double   SOCIAL_TAXE_MANAGER      = 25;
+        final double   ABATTEMENT_MAX_AMOUNT = 10000;
+        final double   ABATTEMENT_RATE              = 0.10;
+        boolean        isWorker                             = false;
 
         final double TAX_RATE_5 = 0.45;
         final double TAX_RATE_4 = 0.41;
@@ -43,6 +43,7 @@ public class FrenchRevenueTaxeCalculator {
 
         double netSalaryAfterDeduction = 0;
         double netSalaryAbattementDifference = netSalary * ABATTEMENT_RATE;
+        // test
         System.out.println(netSalaryAbattementDifference);
 
         if(netSalaryAbattementDifference >= ABATTEMENT_MAX_AMOUNT){
