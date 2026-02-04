@@ -14,22 +14,22 @@ public class FrenchRevenueTaxeCalculator {
         final double   ABATTEMENT_RATE          = 0.10;
         boolean        isWorker                 = false;
 
-        final double TAX_RATE_5 = 0.45;
-        final double TAX_RATE_4 = 0.41;
-        final double TAX_RATE_3 = 0.30;
-        final double TAX_RATE_2 = 0.11;
-        final double TAX_RATE_1 = 0;
+        final double   TAX_RATE_5               = 0.45;
+        final double   TAX_RATE_4               = 0.41;
+        final double   TAX_RATE_3               = 0.30;
+        final double   TAX_RATE_2               = 0.11;
+        final double   TAX_RATE_1               = 0;
 
-        final double TAX_BRACKET_5 = 177106;
-        final double TAX_BRACKET_4 = 82342;
-        final double TAX_BRACKET_3 = 28797;
-        final double TAX_BRACKET_2 = 11295;
+        final double   TAX_BRACKET_5            = 177106;
+        final double   TAX_BRACKET_4            = 82342;
+        final double   TAX_BRACKET_3            = 28797;
+        final double   TAX_BRACKET_2            = 11295;
 
-        double taxBracket5 = 0;
-        double taxBracket4 = 0;
-        double taxBracket3 = 0;
-        double taxBracket2 = 0;
-        double taxBracket1 = 0;
+        double         taxBracket5              = 0;
+        double         taxBracket4              = 0;
+        double         taxBracket3              = 0;
+        double         taxBracket2              = 0;
+        double         taxBracket1              = 0;
 
         // Ici on détermine si c'est un ouvrier ou un manager
         if (isWorker) {
