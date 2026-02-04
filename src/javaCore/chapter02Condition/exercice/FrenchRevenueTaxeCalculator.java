@@ -7,12 +7,12 @@ public class FrenchRevenueTaxeCalculator {
         // annual salary
 
         final double   SOCIAL_CONTRIBUTION_RATE;
-        double          grossAnnualSalary               = 88000;
+        double         grossAnnualSalary        = 88000;
         final double   SOCIAL_TAXE_WORKER       = 23;
         final double   SOCIAL_TAXE_MANAGER      = 25;
-        final double   ABATTEMENT_MAX_AMOUNT = 10000;
-        final double   ABATTEMENT_RATE              = 0.10;
-        boolean        isWorker                             = false;
+        final double   ABATTEMENT_MAX_AMOUNT    = 10000;
+        final double   ABATTEMENT_RATE          = 0.10;
+        boolean        isWorker                 = false;
 
         final double TAX_RATE_5 = 0.45;
         final double TAX_RATE_4 = 0.41;
