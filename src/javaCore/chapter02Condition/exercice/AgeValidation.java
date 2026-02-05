@@ -24,9 +24,37 @@ public class AgeValidation {
         // On va tester un utilisateur majeur, puis un utilisateur pas majeur et un utilisateur présque majeur
         // A cette date 02.02.2026, les personnes nées en 2008 sont majeurs en 2026.
 
-        int userDay = 15;
-        int userMonth = 2;
-        int userYear = 2000;
+        final double MINIMUM_LEGAL_AGE = 18;
+        final double HOURS_IN_DAY      = 24;
+        final double DAYS_IN_MONTH     = 30;
+        final double MONTHS_IN_YEAR    = 12;
+        final double SECONDS_IN_MINUTE = 60;
+        final double SECONDS_IN_HOUR   = SECONDS_IN_MINUTE * SECONDS_IN_MINUTE; // 3600 secondes
+        final double SECONDS_IN_DAY    = HOURS_IN_DAY * SECONDS_IN_HOUR;        // 86 400 secondes
+        final double SECONDS_IN_MONTH  = DAYS_IN_MONTH * SECONDS_IN_DAY;        // 2 592 000 secondes
+        final double SECONDS_IN_YEAR   = MONTHS_IN_YEAR * SECONDS_IN_MONTH;     // 31 536 000 secondes
+
+        int userDayBirth   =   15; // jour de naissance
+        int userMonthBirth =    2; // mois de naissance
+        int userYearBirth  = 2020; // année de naissance
+
+        double userSinceBirth = currentYear - userYearBirth;
+
+        // plus court chemin pour connaitre approximativement la date de naissance d'une personne.
+
+        if (userSinceBirth > MINIMUM_LEGAL_AGE) {
+            System.out.println("Vous êtes majeur.");
+        } else {
+            System.out.println("Vous êtes mineur.");
+        }
+        System.out.println("Vous êtes né le " + userDayBirth + "/" + userMonthBirth + "/" + userYearBirth + ". Vous avez donc " +  userSinceBirth + " ans.");
+
+
+
+
+
+
+
 
 
 
