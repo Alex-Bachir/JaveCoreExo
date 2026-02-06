@@ -10,6 +10,13 @@ public class CoinChangerV2 {
         final int BILLET_2  =  2;
         final int BILLET_1  =  1;
 
+        final int BILLET_50_COUNT = 5;
+        final int BILLET_20_COUNT = 8;
+        final int BILLET_10_COUNT = 6;
+        final int BILLET_5_COUNT = 7;
+        final int BILLET_2_COUNT = 9;
+        final int BILLET_1_COUNT = 10;
+
         // total de la facture à payer
         int totalBill  = 66;
         // montant que le client paye
