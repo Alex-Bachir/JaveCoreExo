@@ -12,7 +12,7 @@ public class CoinChangerV2 {
 
         int billet50Count = 5;
         int billet20Count = 8;
-        int billet10Count = 1;
+        int billet10Count = 0;
         int billet5Count  = 1;
         int billet2Count  = 9;
         int billet1Count  = 10;
@@ -26,58 +26,107 @@ public class CoinChangerV2 {
         // nombre de billet ou piece à rendre
         int billChange =  0;
 
-        // ici la condition sert quand le montant à payer est inférieur à la facture
-        // on imagine ici celui qui paye, il remet la meme somme pour payer
-        if (amountPaid < totalBill) {
-            totalBill =  totalBill - amountPaid;
-            cashLeft  = amountPaid - totalBill;
-
+        if (billet50Count > 0 && billet20Count > 0 && billet10Count > 0 && billet5Count > 0 && billet2Count > 0 && billet1Count > 0) {
+            System.out.println("Vous pouvez utiliser la machine.");
         } else {
-            cashLeft  = amountPaid - totalBill;
+            System.out.println("Il y'a peut être pas assez pour faire la monnaie. Utilisation déconseiller !");
         }
 
         if (cashLeft >= BILLET_50 && billet50Count > 0) {
-            billChange     = cashLeft / BILLET_50;
-            billet50Count -= billChange;
-            cashLeft       = cashLeft % BILLET_50;
-            System.out.println("j'ai rendu " + billChange + " billet de 50e et il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet50Count + " billet de 50 euros.");
+            cashLeft = cashLeft - BILLET_50;
+            billet50Count --;
+            System.out.println("J'ai rendu un billet de " + BILLET_50 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet50Count + " billet de 50 euros." );
+            if (cashLeft >= BILLET_50 && billet50Count > 0) {
+                cashLeft = cashLeft - BILLET_50;
+                billet50Count --;
+                System.out.println("J'ai rendu un billet de " + BILLET_50 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet50Count + " billet de 50 euros." );
+            }
         }
 
         if (cashLeft >= BILLET_20 && billet20Count > 0) {
-            billChange     = cashLeft / BILLET_20;
-            billet20Count -= billChange;
-            cashLeft       = cashLeft % BILLET_20;
-            System.out.println("J'ai rendu " + billChange + " billet de 20e et il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet20Count + " billet de 20 euros.");
+            cashLeft = cashLeft - BILLET_20;
+            billet20Count --;
+            System.out.println("J'ai rendu un billet de " + BILLET_20 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet20Count + " billet de 20 euros." );
+            if (cashLeft >= BILLET_20 && billet20Count > 0) {
+                cashLeft = cashLeft - BILLET_20;
+                billet20Count --;
+                System.out.println("J'ai rendu un billet de " + BILLET_20 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet20Count + " billet de 20 euros." );
+
+            }
         }
 
         if (cashLeft >= BILLET_10 && billet10Count > 0) {
-            billChange     = cashLeft / BILLET_10;
-            billet10Count -= billChange;
-            cashLeft       = cashLeft % BILLET_10;
-            System.out.println("J'ai rendu " + billChange + " billet de 10e et il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet10Count + " billet de 10 euros.");
+            cashLeft =  cashLeft - BILLET_10;
+            billet10Count --;
+            System.out.println("J'ai rendu un billet de " + BILLET_10 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet10Count + " billet de 10 euros." );
+            if (cashLeft >= BILLET_10 && billet10Count > 0) {
+                cashLeft = cashLeft - BILLET_10;
+                billet10Count --;
+                System.out.println("J'ai rendu un billet de " + BILLET_10 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet10Count + " billet de 10 euros." );
+
+            }
         }
 
         if (cashLeft >= BILLET_5 && billet5Count > 0) {
-            billChange    = cashLeft / BILLET_5;
-            billet5Count -= billChange;
-            cashLeft      = cashLeft % BILLET_5;
-            System.out.println("J'ai rendu " + billChange + " billet de 5e et il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet5Count + " billet de 5 euros.");
+            // je donne 1 billet car si je suis dans cette condition c'est que j'ai au moins 1 billet.
+            cashLeft = cashLeft - (BILLET_5 * 1);
+            // décompte
+            billet5Count --;
+            System.out.println("J'ai rendu un billet de " + BILLET_5 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet5Count + " billet de 5 euros." );
+            if (cashLeft >= BILLET_5 && billet5Count > 0) {
+                // je donne 1 billet car si je suis dans cette condition c'est que j'ai au moins 1 billet.
+                cashLeft = cashLeft - (BILLET_5 * 1);
+                // décompte
+                billet5Count --;
+                System.out.println("J'ai rendu un billet de " + BILLET_5 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet5Count + " billet de 5 euros." );
+            }
         }
 
-        if (cashLeft >= BILLET_2 && billet2Count > 0) {
-            billChange    = cashLeft / BILLET_2;
-            billet2Count -= billChange;
-            cashLeft      = cashLeft % BILLET_2;
-            System.out.println("J'ai rendu " + billChange + " piece de 2 euros et il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet2Count + " pièce de 2 euros.");
+        if (cashLeft >= BILLET_2 &&  billet2Count > 0) {
+            cashLeft = cashLeft - (BILLET_2 * 1);
+            billet2Count --;
+            System.out.println("J'ai rendu un billet de " + BILLET_2 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet2Count + " billet de 2 euros." );
+            if (cashLeft >= BILLET_2 &&  billet2Count > 0) {
+                cashLeft = cashLeft - (BILLET_2 * 1);
+                billet2Count --;
+                System.out.println("J'ai rendu un billet de " + BILLET_2 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet2Count + " billet de 2 euros." );
+            }
+            if (cashLeft >= BILLET_2 &&  billet2Count > 0) {
+                cashLeft = cashLeft - (BILLET_2 * 1);
+                billet2Count --;
+                System.out.println("J'ai rendu un billet de " + BILLET_2 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet2Count + " billet de 2 euros." );
+            }
+            if (cashLeft >= BILLET_2 &&  billet2Count > 0) {
+                cashLeft = cashLeft - (BILLET_2 * 1);
+                billet2Count --;
+                System.out.println("J'ai rendu un billet de " + BILLET_2 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet2Count + " billet de 2 euros." );
+            }
         }
 
         if (cashLeft >= BILLET_1 &&  billet1Count > 0) {
-            billChange    = cashLeft / BILLET_1;
-            billet1Count -= billChange;
-            cashLeft      = cashLeft % BILLET_1;
-            System.out.println("J'ai rendu " + billChange + " piece de 1 euros et il reste " + cashLeft+ " euros à rendre. #Note : il reste " + billet1Count + " pièce de 1 euros.");
+            cashLeft = cashLeft - (BILLET_1 * 1);
+            billet1Count --;
+            System.out.println("J'ai rendu un billet de " + BILLET_1 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet1Count + " billet de 1 euros." );
+            if (cashLeft >= BILLET_1 &&  billet1Count > 0) {
+                cashLeft = cashLeft - (BILLET_1 * 1);
+                billet1Count --;
+                System.out.println("J'ai rendu un billet de " + BILLET_1 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet1Count + " billet de 1 euros." );
+            }
+            if (cashLeft >= BILLET_1 &&  billet1Count > 0) {
+                cashLeft = cashLeft - (BILLET_1 * 1);
+                billet1Count --;
+                System.out.println("J'ai rendu un billet de " + BILLET_1 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet1Count + " billet de 1 euros." );
+            }
+            if (cashLeft >= BILLET_1 &&  billet1Count > 0) {
+                cashLeft = cashLeft - (BILLET_1 * 1);
+                billet1Count --;
+                System.out.println("J'ai rendu un billet de " + BILLET_1 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet1Count + " billet de 1 euros." );
+            }
+            if (cashLeft >= BILLET_1 &&  billet1Count > 0) {
+                cashLeft = cashLeft - (BILLET_1 * 1);
+                billet1Count --;
+                System.out.println("J'ai rendu un billet de " + BILLET_1 + " euros. Il reste " + cashLeft + " euros à rendre. #Note : il reste " + billet1Count + " billet de 1 euros." );
+            }
         }
-
-
     }
 }
