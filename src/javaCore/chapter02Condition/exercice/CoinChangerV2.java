@@ -45,7 +45,6 @@ public class CoinChangerV2 {
                 // Si le nombre de billet à rendre est supérieur à ce que je peux donner réellement.
                 // Je fais en sorte de donner tout mon stock puis on passe au billet inférieur.
                 if (requiredBillOf50  > billetToGive50) {
-                    billetToGive50 = billet50StockAvailable;
                     amountDue -= billetToGive50 * BILLET_50_VALUE;
                     System.out.println("J'ai rendu " + billetToGive50 + " billet de 50€ et il reste " + amountDue + " euros à rendre.");
                     // ici dans le cas où le stock de billet est supérieur à ce qu'il faut donner c'est le cas classique.
@@ -58,7 +57,6 @@ public class CoinChangerV2 {
                 int requiredBillOf20 = amountDue / BILLET_20_VALUE;
                 int billetToGive20 = billet20StockAvailable;
                 if (requiredBillOf20 > billetToGive20) {
-                    billetToGive20 = billet20StockAvailable;
                     amountDue -= billetToGive20 * BILLET_20_VALUE;
                     System.out.println("j'ai rendu " + billetToGive20 + " billet de 20e et il reste " + amountDue + " euros à rendre.");
                     } else {
@@ -70,7 +68,6 @@ public class CoinChangerV2 {
                 int requiredBillOf10 = amountDue / BILLET_10_VALUE;
                 int billetToGive10 = billet10StockAvailable;
                 if (requiredBillOf10 > billetToGive10) {
-                    billetToGive10 = billet10StockAvailable;
                     amountDue -= billetToGive10 * BILLET_10_VALUE;
                     System.out.println("j'ai rendu " + billetToGive10 + " billet de 10e et il reste " + amountDue + " euros à rendre.");
                 } else {
@@ -82,7 +79,6 @@ public class CoinChangerV2 {
                 int requiredBillOf5 = amountDue / BILLET_5_VALUE;
                 int billetToGive5 = billet5StockAvailable;
                 if (requiredBillOf5 > billetToGive5) {
-                    billetToGive5 = billet5StockAvailable;
                     amountDue -= billetToGive5 * BILLET_5_VALUE;
                     System.out.println("j'ai rendu " + billetToGive5 + " billet de 5e et il reste " + amountDue + " euros à rendre.");
                 } else {
@@ -94,7 +90,6 @@ public class CoinChangerV2 {
                 int requiredBillOf2 = amountDue / BILLET_2_VALUE;
                 int billetToGive2 = billet2StockAvailable;
                 if (requiredBillOf2 > billetToGive2) {
-                    billetToGive2 = billet2StockAvailable;
                     amountDue -= billetToGive2 * BILLET_2_VALUE;
                     System.out.println("j'ai rendu " + billetToGive2 + " pièce de 2e et il reste " + amountDue + " euros à rendre.");
                 } else {
@@ -106,7 +101,6 @@ public class CoinChangerV2 {
                 int requiredBillOf1 = amountDue / BILLET_1_VALUE;
                 int billetToGive1 = billet1StockAvailable;
                 if (requiredBillOf1 > billetToGive1) {
-                    billetToGive1 = billet1StockAvailable;
                     amountDue -= billetToGive1 * BILLET_1_VALUE;
                     System.out.println("j'ai rendu " + billetToGive1 + " pièce de 1e et il reste " + amountDue + " euros à rendre.");
                 } else {
