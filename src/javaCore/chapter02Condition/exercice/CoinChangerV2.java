@@ -10,7 +10,6 @@ public class CoinChangerV2 {
         // montant restant à rendre.
         int amountDue = amountPaid - totalBill;
 
-
         final int BILLET_50_VALUE  = 50;
         final int BILLET_20_VALUE  = 20;
         final int BILLET_10_VALUE  = 10;
@@ -108,8 +107,6 @@ public class CoinChangerV2 {
                     System.out.println("j'ai rendu " + requiredBillOf1 + " pièce de 1e et il reste " + amountDue + " euros à rendre.");
                 }
             }
-
-
         }
     }
 }
