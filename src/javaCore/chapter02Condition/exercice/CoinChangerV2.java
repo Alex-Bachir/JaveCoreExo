@@ -37,13 +37,14 @@ public class CoinChangerV2 {
                 System.out.println("La facture à était payé dans sa totalité.");
         } else {
             if (amountDue >= BILLET_50_VALUE && billet50StockAvailable > 0) {
-                // Nombre de billet de 50 requis
+                // Nombre de billet de 50 "le besoin"
                 int requiredBillOf50  = amountDue / BILLET_50_VALUE;
-                // ici on récupère ce que je peux réellement donner
+                // ici on récupère ce que je peux réellement donner "la réalité"
                 int billetToGive50    = billet50StockAvailable;
                 // Si le nombre de billet à rendre est supérieur à ce que je peux donner réellement.
                 // Je fais en sorte de donner tout mon stock puis on passe au billet inférieur.
                 if (requiredBillOf50  > billetToGive50) {
+                    // On déduit la valeur des billets au montant qu'on doit.
                     amountDue -= billetToGive50 * BILLET_50_VALUE;
                     System.out.println("J'ai rendu " + billetToGive50 + " billet de 50€ et il reste " + amountDue + " euros à rendre. #Note : Sécurité remettre du stock car on à atteint 0.");
                     // ici dans le cas où le stock de billet est supérieur à ce qu'il faut donner c'est le cas classique.
