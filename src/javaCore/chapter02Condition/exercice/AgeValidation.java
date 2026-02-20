@@ -39,7 +39,6 @@ public class AgeValidation {
 
         if (dayCheck < 0) {
             int dayPast = dayCheck + dayInMonth;
-            int
             System.out.println(dayPast);
         }
 
