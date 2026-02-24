@@ -40,24 +40,26 @@ public class AgeValidation {
 
 
         // ici la condition marche si dayCheck est inférieur à 0
-        //
+        // le but est d'emprunter 1 mois donc 30 j pour ensuite soustraire le resultat au jour de l'anniversaire
+        // comme on a emprunter 1 mois il faut décrémenter le mois de l'anniversaire
         if (dayCheck < 0) {
             int dayPast = dayCheck + DAY_IN_MONTH;
             dayCheck =  dayPast - dayOfBirth;
             monthOfBirth --;
         }
-
+        // pareil on emprunt 1 an donc 12 mois
         if (monthCheck < 0) {
             int monthPast = monthCheck + MONTH_IN_YEAR;
             monthCheck =  monthPast - monthOfBirth;
-            yearOfBirth ++;
+            yearOfBirth --;
         }
-
+        // j'ai mis ma variable ici car l'année de  naissance décrémente et on a besoin de la modification
         int yearCheck = currentYear - yearOfBirth;
 
         System.out.println("J'ai " + yearCheck + " ans " + monthCheck + " mois et " + dayCheck + " jours.");
         System.out.println("Je fête mon anniversaiire dans " + monthCheck + " mois et " + dayCheck + " jours.");
 
+        // si la personne n'ai pas encore majeur alors on soustrait l'age de la majortité moins l'année
         if (yearCheck < LEGALE_AGE_MAJORITY) {
             int majorityBirth = LEGALE_AGE_MAJORITY - yearCheck;
             System.out.println("Tu seras majeur dans " + majorityBirth + " an(s) " +  monthCheck + " mois et " + dayCheck + " jours.");
