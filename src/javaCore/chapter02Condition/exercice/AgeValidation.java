@@ -28,16 +28,14 @@ public class AgeValidation {
         // On va tester un utilisateur majeur, puis un utilisateur pas majeur et un utilisateur présque majeur
         // A cette date 17.02.2026, les personnes nées en 2008 sont majeurs en 2026.
 
-        int dayOfBirth   =     26;
+        int dayOfBirth   =     20;
         int monthOfBirth =     2;
         int yearOfBirth  =  2008;
-
 
         // ici on vérifie le nombre de jour
         int dayCheck = dayOfBirth - currentDay;
         int monthCheck = monthOfBirth - currentMonth;
-
-
+        int yearCheck = currentYear - yearOfBirth;
 
         // ici la condition marche si dayCheck est inférieur à 0
         // le but est d'emprunter 1 mois donc 30 j pour ensuite soustraire le resultat au jour de l'anniversaire
@@ -51,10 +49,8 @@ public class AgeValidation {
         if (monthCheck < 0) {
             int monthPast = monthCheck + MONTH_IN_YEAR;
             monthCheck =  monthPast - monthOfBirth;
-            yearOfBirth --;
+
         }
-        // j'ai mis ma variable ici car l'année de  naissance décrémente et on a besoin de la modification
-        int yearCheck = currentYear - yearOfBirth;
 
         System.out.println("J'ai " + yearCheck + " ans " + monthCheck + " mois et " + dayCheck + " jours.");
         System.out.println("Je fête mon anniversaiire dans " + monthCheck + " mois et " + dayCheck + " jours.");
