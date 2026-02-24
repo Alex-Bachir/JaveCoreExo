@@ -60,7 +60,7 @@ public class AgeValidation {
         System.out.println("Je fête mon anniversaiire dans " + monthCheck + " mois et " + dayCheck + " jours.");
 
         // si la personne n'ai pas encore majeur alors on soustrait l'age de la majortité moins l'année
-        if (yearCheck < LEGALE_AGE_MAJORITY) {
+        if (yearCheck <= LEGALE_AGE_MAJORITY) {
             int majorityBirth = LEGALE_AGE_MAJORITY - yearCheck;
             System.out.println("Tu seras majeur dans " + majorityBirth + " an(s) " +  monthCheck + " mois et " + dayCheck + " jours.");
         }
