@@ -29,7 +29,7 @@ public class AgeValidation {
         // A cette date 17.02.2026, les personnes nées en 2008 sont majeurs en 2026.
 
         int dayOfBirth   =     20;
-        int monthOfBirth =     2;
+        int monthOfBirth =     3;
         int yearOfBirth  =  2008;
 
         // ici on vérifie le nombre de jour
@@ -50,15 +50,17 @@ public class AgeValidation {
             int monthPast = monthCheck + MONTH_IN_YEAR;
             monthCheck =  monthPast - monthOfBirth;
 
+        } else {
+            yearOfBirth ++;
+            yearCheck = currentYear - yearOfBirth;
         }
 
-        System.out.println("J'ai " + yearCheck + " ans " + monthCheck + " mois et " + dayCheck + " jours.");
+        System.out.println("Tu as " + yearCheck + " ans " + monthCheck + " mois et " + dayCheck + " jours.");
         System.out.println("Je fête mon anniversaiire dans " + monthCheck + " mois et " + dayCheck + " jours.");
 
         // si la personne n'ai pas encore majeur alors on soustrait l'age de la majortité moins l'année
         if (yearCheck <= LEGALE_AGE_MAJORITY) {
-            int majorityBirth = LEGALE_AGE_MAJORITY - yearCheck;
-            System.out.println("Tu seras majeur dans " + majorityBirth + " an(s) " +  monthCheck + " mois et " + dayCheck + " jours.");
+            System.out.println("Tu seras majeur dans " +  monthCheck + " mois et " + dayCheck + " jours.");
         }
 
 
