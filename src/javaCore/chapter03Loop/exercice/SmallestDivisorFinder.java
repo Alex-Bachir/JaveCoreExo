@@ -7,10 +7,9 @@ public class SmallestDivisorFinder {
         int divisor = 3;
 
         while (number % divisor != 0) {
-            divisor++;
-
-
-
+            int result = number % divisor;
+            System.out.println(result);
+            divisor ++;
         }
     }
 }

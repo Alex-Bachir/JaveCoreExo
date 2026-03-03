@@ -4,6 +4,8 @@ public class AgeValidation {
     public static void main(String[] args) {
 
         final int LEGALE_AGE_MAJORITY = 18;
+        final int DAY_IN_MONTH = 30;
+        final int MONTH_IN_YEAR = 12;
 
         /**
          * Début d'un code que nous ne comprenons pas à ce stade de la formation...
@@ -12,9 +14,9 @@ public class AgeValidation {
         // Récupération de la date courante de la machine exécutant ce programme
         java.time.LocalDate currentDate = java.time.LocalDate.now();
 
-        int currentDay   = currentDate.getDayOfMonth(); // Jour courant (entre 1 et 31)
+        int currentDay = currentDate.getDayOfMonth(); // Jour courant (entre 1 et 31)
         int currentMonth = currentDate.getMonthValue(); // Mois courant (entre 1 et 12)
-        int currentYear  = currentDate.getYear();       // Année courante (202X)
+        int currentYear = currentDate.getYear();       // Année courante (202X)
 
         System.out.println("Nous somme le " + currentDay + "/" + currentMonth + "/" + currentYear);
 
@@ -27,32 +29,64 @@ public class AgeValidation {
         // On va tester un utilisateur majeur, puis un utilisateur pas majeur et un utilisateur présque majeur
         // A cette date 17.02.2026, les personnes nées en 2008 sont majeurs en 2026.
 
-        int dayOfBirth   =    26;
-        int monthOfBirth =     2;
-        int yearOfBirth  =  2008;
+        int dayOfBirth = 3;
+        int monthOfBirth = 4;
+        int yearOfBirth = 2008;
+        int dayCheck = currentDay - dayOfBirth;
+        int monthCheck = currentMonth - monthOfBirth;
+        int yearCheck = currentYear - yearOfBirth;
 
-        int dayCheck   =   currentDay   -    dayOfBirth;
-        int monthCheck =   currentMonth -  monthOfBirth;
-        int yearCheck  =   currentYear  -   yearOfBirth;
+        if (yearCheck > LEGALE_AGE_MAJORITY) {
+            System.out.println("Tu es majeur.");
+        } else if (yearCheck < LEGALE_AGE_MAJORITY) {
+            System.out.println("Tu es mineur.");
+        } else if (yearCheck == LEGALE_AGE_MAJORITY && currentMonth == monthOfBirth && currentDay == dayOfBirth) {
+            System.out.println("Bon anniversaire ! Tu es majeur.");
 
-        // on teste quand ça fait au moins 1 an que la personne à la majorité / on test yearCheck
-        // on teste pour quelqu'un qui aura la majorité dans l'année / on test monthCheck
-        // on teste pour quelqu'un qui aura la majorité dans le mois / on test dayCheck
-        // 21, 18 ans et 2 mois, 18 0 mois et 2 jours
-        if (yearCheck >= LEGALE_AGE_MAJORITY && monthCheck >= 0 && dayCheck >= 0) {
-            System.out.println("Tu es majeur. ");
-        } else if (yearCheck == LEGALE_AGE_MAJORITY && monthCheck < 0) {
-            System.out.println("Tu es encore mineur. ");
-        } else if (yearCheck == LEGALE_AGE_MAJORITY && monthCheck == 0 && dayCheck < 0) {
-            System.out.println("Tu es toujours mineur.");
+        } else if (yearCheck == LEGALE_AGE_MAJORITY && currentMonth == monthOfBirth && currentDay < dayOfBirth) {
+            System.out.println("Tu vas fêter ton  18eme anniversaire dans le mois");
+        } else if (yearCheck == LEGALE_AGE_MAJORITY && currentMonth == monthOfBirth && currentDay > dayOfBirth) {
+            System.out.println("Tu viens d'avoir 18 ans.");
+
+        } else if (yearCheck == LEGALE_AGE_MAJORITY && currentMonth > monthOfBirth && currentDay > dayOfBirth) {
+            System.out.println("Test 8");
+        } else if (yearCheck == LEGALE_AGE_MAJORITY && currentMonth > monthOfBirth && currentDay < dayOfBirth) {
+            System.out.println("Test 1");
+        } else if (yearCheck == LEGALE_AGE_MAJORITY && currentMonth < monthOfBirth && currentDay > dayOfBirth) {
+            System.out.println("Test 2");
+        } else if (yearCheck == LEGALE_AGE_MAJORITY && currentMonth < monthOfBirth && currentDay < dayOfBirth) {
+            System.out.println("Test 3");
+
+        } else if (yearCheck == LEGALE_AGE_MAJORITY && currentMonth < monthOfBirth && currentDay == dayOfBirth) {
+            System.out.println("Test 6");
+        } else if (yearCheck == LEGALE_AGE_MAJORITY && currentMonth > monthOfBirth && currentDay == dayOfBirth) {
+            System.out.println("Test 7");
         }
-
-
-
     }
 }
+// v2
 
 
+//if (yearCheck > LEGALE_AGE_MAJORITY) {
+//            System.out.println("Tu es majeur.");
+//
+//        } else if (yearCheck < LEGALE_AGE_MAJORITY ) {
+//            System.out.println("Tu es mineur.");
+//
+//        } else if (yearCheck == LEGALE_AGE_MAJORITY && monthCheck == 0 && dayCheck == 0){
+//            System.out.println("Bon anniversaire ! Tu es majeur !");
+//
+//        } else if (yearCheck == LEGALE_AGE_MAJORITY && monthCheck == 0 && dayCheck != 0) {
+//            if (dayCheck > currentDay) {
+//                System.out.println("Tu es majeur !");
+//            }
+//            System.out.println("Tu es à quelque jour d'être majeur.");
+//
+//        } else if (yearCheck == LEGALE_AGE_MAJORITY && monthCheck != 0) {
+//            System.out.println("Tu es bientôt majeur.");
+//        }
+
+// v1
 //// ici on vérifie le nombre de jour
 //int dayCheck = dayOfBirth - currentDay;
 //int monthCheck = monthOfBirth - currentMonth;
