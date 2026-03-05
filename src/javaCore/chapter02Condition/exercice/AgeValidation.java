@@ -31,9 +31,9 @@ public class AgeValidation {
         // On va tester un utilisateur majeur, puis un utilisateur pas majeur et un utilisateur présque majeur
         // A cette date 17.02.2026, les personnes nées en 2008 sont majeurs en 2026.
 
-        int dayOfBirth   =    4;
-        int monthOfBirth =    3;
-        int yearOfBirth  =  2008;
+        int dayOfBirth   =    22;
+        int monthOfBirth =    10;
+        int yearOfBirth  =  1994;
 
         int yearCheck = currentYear - yearOfBirth;
         int numberOfDaysInYear = yearCheck * DAY_IN_YEAR;
