@@ -54,16 +54,6 @@ public class AgeValidation {
         } else {
             System.out.println("C'est un mineur.");
         }
-
-
-
-
-
-
-
-
-
-
     }
 }
 

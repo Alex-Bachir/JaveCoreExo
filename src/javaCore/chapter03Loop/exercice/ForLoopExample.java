@@ -3,7 +3,7 @@ package javaCore.chapter03Loop.exercice;
 public class ForLoopExample {
     public static void main(String[] args) {
 
-        for (int number = 1; number <= 20; number ++) {
+        for ( int number = 1; number <= 20; number ++) {
 
             System.out.print( number + " ");
 
@@ -12,7 +12,7 @@ public class ForLoopExample {
             }
         }
 
-        for (int number = 20; number >= 1; number --) {
+        for ( int number = 20; number >= 1; number --) {
 
             System.out.print( number + " ");
 
