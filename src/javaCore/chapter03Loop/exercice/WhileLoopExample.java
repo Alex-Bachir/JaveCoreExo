@@ -5,7 +5,7 @@ public class WhileLoopExample {
 
         int loopCounter = 1;
         int number = 1;
-        int reverseNumber = 10;
+
         int pairNumber = 0;
 
         while (loopCounter <= 10) {
@@ -15,20 +15,20 @@ public class WhileLoopExample {
 
         while (number <= 10) {
 
-            System.out.println(number);
+            System.out.print(number + " ");
             number ++;
         }
-
+        // recupère number à 11 puis décrémente
         while (number >= 0) {
-            System.out.println(number);
+
+            System.out.print(number + " ");
             number --;
+
         }
 
         while (pairNumber <= 20) {
             System.out.println(pairNumber);
             pairNumber += 2;
         }
-
-
     }
 }
