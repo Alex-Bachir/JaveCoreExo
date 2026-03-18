@@ -18,7 +18,7 @@ public class PrimeNumberSearcherV1 {
                     count++;
                 }
             }
-            // On conclut, si on à pas trouver de diviseur alors c'est un nombre premier
+            // On conclut, si on n'a pas trouvé de diviseur alors c'est un nombre premier
             if (count == 0) {
                 System.out.print(i + " ");
             }
