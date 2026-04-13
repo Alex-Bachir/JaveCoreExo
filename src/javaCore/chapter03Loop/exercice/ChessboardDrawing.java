@@ -1,4 +1,4 @@
-package javaCore.chapter02Condition.exercice;
+package javaCore.chapter03Loop.exercice;
 
 public class ChessboardDrawing {
     public static void main(String[] args) {
