@@ -11,12 +11,22 @@ public class CoinChangerV3 {
         // nombre de billet ou piece à rendre
         int billChange =  0;
 
-        final int BILLET_50 = 50;
-        final int BILLET_20 = 20;
-        final int BILLET_10 = 10;
-        final int BILLET_5  =  5;
-        final int BILLET_2  =  2;
-        final int BILLET_1  =  1;
+        if (amountPaid < totalBill) {
+            totalBill =  totalBill - amountPaid;
+            cashLeft  = amountPaid - totalBill;
+
+        } else {
+            cashLeft = amountPaid - totalBill;
+        }
+
+        Integer[] billetChangeValue = {50, 20, 10, 5, 2, 1};
+
+        for(int i = 0; i < billetChangeValue.length; i++){
+            if(cashLeft >= billetChangeValue[i]) {
+                cashLeft -= billetChangeValue[i];
+                System.out.println("j'ai rendu un billet de " + billetChangeValue[i] + " euros et il reste " + cashLeft + " euros à rendre.");
+            }
+        }
 
 
     }
