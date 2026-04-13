@@ -24,9 +24,9 @@ public class CoinChangerV2 {
         int cashLeft = ((BILLET_50_VALUE * billet_50_StockAvailable) +
                         (BILLET_20_VALUE * billet_20_StockAvailable) +
                         (BILLET_10_VALUE * billet_10_StockAvailable) +
-                        (BILLET_5_VALUE * billet_5_StockAvailable)   +
-                        (BILLET_2_VALUE * billet_2_StockAvailable)   +
-                        (BILLET_1_VALUE * billet_1_StockAvailable));
+                        (BILLET_5_VALUE  * billet_5_StockAvailable)  +
+                        (BILLET_2_VALUE  * billet_2_StockAvailable)  +
+                        (BILLET_1_VALUE  * billet_1_StockAvailable));
 
         if (amountDue == 0) {
             System.out.println("La facture à était payé dans sa totalité.");
