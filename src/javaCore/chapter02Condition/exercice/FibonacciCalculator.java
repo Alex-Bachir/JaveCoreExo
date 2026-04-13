@@ -9,7 +9,7 @@ public class FibonacciCalculator {
         int  countImpair = 0;
 
 
-        for (int i = 0; i <= 50; i++) {
+        for (int number = 0; number <= 50; number++) {
             long temporaryTerm = firstInitialTerm + secondInitialTerm;
             firstInitialTerm = secondInitialTerm;
             secondInitialTerm = temporaryTerm;
