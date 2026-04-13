@@ -5,8 +5,8 @@ public class FibonacciCalculator {
 
         long firstInitialTerm   = 0;
         long secondInitialTerm  = 1;
-        int countPair   = 0;
-        int countImpair = 0;
+        int  countPair   = 0;
+        int  countImpair = 0;
 
 
         for (int i = 0; i <= 50; i++) {
