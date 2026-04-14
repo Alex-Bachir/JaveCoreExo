@@ -19,11 +19,13 @@ public class CoinChangerV3 {
             cashLeft = amountPaid - totalBill;
             System.out.println(" Il reste : " + cashLeft + " à rendre.");
         }
+
         System.out.println("Preparation de la monnaie à rendre.");
+
         // Pour la modification, on repère que ce qui ne bouge pas.
         // Pour mon cas les valeur des billets ne change pas.
         // Donc, on crée une liste avec chaque valeur des billets.
-        // Dans ma boucle for, je reprends la meme logique du programme précedent tout ce qui concerne les billets par billetChangeValue[i].
+        // Dans ma boucle for, je reprends la meme logique du programme précedent tout ce qui concerne les billets, je les change par billetChangeValue[i].
         // Pour les paramètres de ma boucle, je vais itérer sur la longueur de ma liste.
         // Du coup si le montant à rendre est supérieur ou égale à la valeur du billet.
         // On fait la soustraction du montant à rendre moins la valeur du billet.

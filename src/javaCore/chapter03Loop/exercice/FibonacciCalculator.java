@@ -31,7 +31,7 @@ public class FibonacciCalculator {
         }
 
         System.out.println("Il y'a au total " + countPair + " chiffre pair." +
-                " Il y'a au total " + countImpair + " chiffre impair.");
+                           "Il y'a au total " + countImpair + " chiffre impair.");
 
 
 
