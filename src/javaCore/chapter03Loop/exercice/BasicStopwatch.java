@@ -3,7 +3,10 @@ package javaCore.chapter03Loop.exercice;
 public class BasicStopwatch {
     public static void main(String[] args) throws InterruptedException {
 
-        int i = 0;
+        int i       = 0;
+        int seconde = 0;
+        int minute  = 0;
+        int hour    = 0;
 
         /*
          * Une boucle while qui itèrera 100x grâce à l'incrémentation de la variable i (à la fin de la boucle)
