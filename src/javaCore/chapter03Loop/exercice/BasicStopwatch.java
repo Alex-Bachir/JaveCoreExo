@@ -16,13 +16,29 @@ public class BasicStopwatch {
             /*
              * Effectue une "pause" de 1000 millisecondes / 1 seconde
              */
-            Thread.sleep(1000);
-            System.out.println("1 seconde s'est écoulée");
+            Thread.sleep(100);
+//            System.out.println("1 seconde s'est écoulée");
+            System.out.println(hour + " : " + minute + " : " + seconde);
 
             /*
              * Incrémente "i = i + 1;" pour atteindre la condition de la boucle while
              */
             i++;
+
+            seconde = i;
+
+            if (seconde == 60) {
+                i = 0;
+                seconde = 0;
+                minute++;
+            }
+
+            if (minute == 60) {
+                i = 0;
+                seconde = 0;
+                minute = 0;
+                hour++;
+            }
         }
 
     }
