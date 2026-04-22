@@ -2,6 +2,7 @@ package javaCore.chapter03Loop.exercice;
 
 public class CoinChangerV3 {
     public static void main(String[] args) {
+
         // total de la facture à payer
         int totalBill  = 20;
         // montant que le client paye
@@ -28,7 +29,9 @@ public class CoinChangerV3 {
         // La boucle for itére sur les billets.
         // Puis la boucle while marche tant que cashLeft est supérieur à la valeur du billet.
 
+
         Integer[] billetChangeValue = {50, 20, 10, 5, 2, 1};
+
         // ici tant que i est plus petit que la longueur du tableau, il incrémente.
         for(int i = 0; i < billetChangeValue.length; i++){
             while(cashLeft >= billetChangeValue[i]) {
