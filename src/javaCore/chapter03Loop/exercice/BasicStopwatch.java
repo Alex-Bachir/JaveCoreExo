@@ -16,7 +16,7 @@ public class BasicStopwatch {
             /*
              * Effectue une "pause" de 1000 millisecondes / 1 seconde
              */
-            Thread.sleep(100);
+            Thread.sleep(10);
 //            System.out.println("1 seconde s'est écoulée");
             System.out.println(hour + " : " + minute + " : " + seconde);
 
