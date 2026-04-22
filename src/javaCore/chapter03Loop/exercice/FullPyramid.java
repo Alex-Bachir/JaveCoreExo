@@ -4,7 +4,7 @@ public class FullPyramid {
     public static void main(String[] args) {
 
         int limit = 5;
-
+// Je me suis servis de la halfPyramid
 // Montante
         for (int montante = 1; montante <= limit; montante++) {
             // je ne sais pas comment appeler la variable..
