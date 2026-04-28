@@ -5,8 +5,9 @@ public class CoinChangerV3 {
 
         // total de la facture à payer
         int totalBill  = 20;
-        // montant que le client paye
-        int amountPaid = 150;
+        // montant que le client paye. J'ai fait exprès d'exagérer pour faire fonctionner plusieur fois la boucle while
+        //pour la meme valeur de billet.
+        int amountPaid = 173;
         // montant restant à payer
         int cashLeft   =  0;
         // nombre de billet ou piece à rendre
@@ -18,25 +19,24 @@ public class CoinChangerV3 {
 
         } else {
             cashLeft = amountPaid - totalBill;
-            System.out.println(" Il reste : " + cashLeft + " à rendre.");
+            System.out.println("Le client à rendu " + amountPaid + ". En déduisant la facture il reste : " + cashLeft + " à rendre.");
         }
 
         System.out.println("Preparation de la monnaie à rendre.");
 
         // Pour la modification, on repère que ce qui ne bouge pas.
         // Pour mon cas les valeur des billets ne change pas.
-        // Donc, on crée une liste avec chaque valeur des billets.
-        // La boucle for itére sur les billets.
-        // Puis la boucle while marche tant que cashLeft est supérieur à la valeur du billet.
+        // Donc, on crée une liste avec chaque valeur de billet.
+        // La boucle for itére sur une valeurs de billets.
+        // Puis la boucle while rend un billet de la valeur de l'index et quand cashlest et enfin endessous de la valeur du billet on passe a la coupure inférieur
 
 
         Integer[] billetChangeValue = {50, 20, 10, 5, 2, 1};
 
-        // ici tant que i est plus petit que la longueur du tableau, il incrémente.
-        for(int i = 0; i < billetChangeValue.length; i++){
-            while(cashLeft >= billetChangeValue[i]) {
-                cashLeft -= billetChangeValue[i];
-                System.out.println("j'ai rendu un billet de " + billetChangeValue[i] + " euros et il reste " + cashLeft + " euros à rendre.");
+        for(int billetIndexValue = 0; billetIndexValue < billetChangeValue.length; billetIndexValue++){
+            while(cashLeft >= billetChangeValue[billetIndexValue]) {
+                cashLeft -= billetChangeValue[billetIndexValue];
+                System.out.println("j'ai rendu un billet de " + billetChangeValue[billetIndexValue] + " euros et il reste " + cashLeft + " euros à rendre.");
             }
         }
 
