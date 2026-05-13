@@ -25,10 +25,10 @@ public class PrimeNumberV2 {
             }
             // On conclut, si on n'a pas trouvé de diviseur alors c'est un nombre premier
             if (count == 0) {
-                if (potentialFirstNumber < 10) {
-                    System.out.println("Le chiffre " + potentialFirstNumber + " est ");
+                if (potentialFirstNumber < 100) {
+                    System.out.println("Le chiffre " + potentialFirstNumber + " est le numero " + iterationCount++ + " des nombres premier.");
                 }
-                System.out.println(potentialFirstNumber + " " + iterationCount +" ");
+
             }
         }
     }
