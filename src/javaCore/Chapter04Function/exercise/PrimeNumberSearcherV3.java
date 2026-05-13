@@ -8,20 +8,30 @@ public class PrimeNumberSearcherV3 {
         int iterationCount = 1;
 
         for (int potentialFirstNumber = 2; potentialFirstNumber <= 50; potentialFirstNumber++) {
-            int count = 0;
 
-            for (int potentialDivisor = 2; potentialDivisor < potentialFirstNumber; potentialDivisor++) {
+            if (isPrimeNumber( potentialFirstNumber)) {
 
-                if (potentialFirstNumber % potentialDivisor == 0) {
-                    count++;
-                }
-            }
-
-            if (count == 0) {
-                if (potentialFirstNumber < 50) {
                     System.out.println("Le chiffre " + potentialFirstNumber + " est le numero " + iterationCount++ + " des nombres premier.");
-                }
             }
         }
+
+
+
+    }
+
+    public static boolean isPrimeNumber(int potentialFirstNumber) {
+
+        for (int potentialDivisor = 2; potentialDivisor < potentialFirstNumber; potentialDivisor++) {
+
+            if (potentialFirstNumber % potentialDivisor == 0) {
+
+                return false;
+            }
+        }
+
+        return true;
+
+
+
     }
 }
